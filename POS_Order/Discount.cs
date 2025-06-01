@@ -31,7 +31,7 @@ namespace POS_Order
             //Discount discount = discountFactory.GetDiscount(discountType, items);
             if (discount != null)
             {
-                discount.GetResult(items);
+                discount.GetResult(items); 2
             }
             ShowPanel.BuildUp(items);
 
