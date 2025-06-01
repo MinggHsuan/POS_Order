@@ -39,16 +39,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(902, 557);
+            this.button1.Location = new System.Drawing.Point(922, 557);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(79, 33);
             this.button1.TabIndex = 1;
@@ -59,7 +56,7 @@
             // totalLab
             // 
             this.totalLab.AutoSize = true;
-            this.totalLab.Location = new System.Drawing.Point(853, 566);
+            this.totalLab.Location = new System.Drawing.Point(878, 566);
             this.totalLab.Name = "totalLab";
             this.totalLab.Size = new System.Drawing.Size(14, 15);
             this.totalLab.TabIndex = 2;
@@ -83,14 +80,14 @@
             // 
             this.flowLayoutPanel3.Location = new System.Drawing.Point(12, 325);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(252, 256);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(252, 265);
             this.flowLayoutPanel3.TabIndex = 3;
             // 
             // flowLayoutPanel4
             // 
             this.flowLayoutPanel4.Location = new System.Drawing.Point(290, 325);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(238, 256);
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(238, 265);
             this.flowLayoutPanel4.TabIndex = 3;
             // 
             // label1
@@ -118,7 +115,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 15);
             this.label3.TabIndex = 6;
-            this.label3.Text = "飲料";
+            this.label3.Text = "甜點";
             // 
             // label4
             // 
@@ -127,70 +124,40 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(37, 15);
             this.label4.TabIndex = 7;
-            this.label4.Text = "甜點";
+            this.label4.Text = "飲料";
             // 
             // flowLayoutPanel5
             // 
-            this.flowLayoutPanel5.Location = new System.Drawing.Point(596, 27);
+            this.flowLayoutPanel5.Location = new System.Drawing.Point(557, 6);
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-            this.flowLayoutPanel5.Size = new System.Drawing.Size(405, 502);
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(444, 523);
             this.flowLayoutPanel5.TabIndex = 3;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(610, 6);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(37, 15);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "品項";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(701, 6);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(37, 15);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "金額";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(800, 6);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(37, 15);
-            this.label7.TabIndex = 10;
-            this.label7.Text = "數量";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(899, 6);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(37, 15);
-            this.label8.TabIndex = 11;
-            this.label8.Text = "小計";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(781, 566);
+            this.label9.Location = new System.Drawing.Point(806, 566);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(56, 15);
             this.label9.TabIndex = 12;
             this.label9.Text = "總金額:";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(557, 563);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(243, 23);
+            this.comboBox1.TabIndex = 13;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1013, 613);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -222,11 +189,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 

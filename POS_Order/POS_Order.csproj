@@ -46,6 +46,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Discount.cs" />
+    <Compile Include="DiscountFactory.cs" />
+    <Compile Include="DiscountModel.cs" />
+    <Compile Include="Discounts\AllDrink_20NT.cs" />
+    <Compile Include="Discounts\AllDrink_BuyThreeOneFree.cs" />
+    <Compile Include="Discounts\AllItem_10off.cs" />
+    <Compile Include="Discounts\Chicken_BuyTwoOneFree.cs" />
+    <Compile Include="Discounts\ChickenWithFries_5off.cs" />
+    <Compile Include="Discounts\ChickenWithSundae_BlackTea.cs" />
+    <Compile Include="Discounts\Chicken_15off.cs" />
+    <Compile Include="Discounts\AllItemOver500_100.cs" />
+    <Compile Include="Discounts\RibsWithFries_100.cs" />
+    <Compile Include="Discounts\RibsWithSide_MilkTea.cs" />
+    <Compile Include="PanelHandlers.cs" />
     <Compile Include="Extension.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -53,8 +67,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Item.cs" />
+    <Compile Include="Order.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShowPanel.cs" />
+    <Compile Include="TotalPrice.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -80,5 +98,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -9,7 +9,7 @@ namespace POS_Order
 {
 
 
-    internal static class Extension
+    public static class Extension
     {
 
         public static int GetDigitalCount(this string input)
@@ -50,28 +50,32 @@ namespace POS_Order
 
 
         }
+        public static void AutoCombo(this ComboBox combobox, Dictionary<string, string> items)
+        {
+            for (int i = 0; i < items.Count; i++)
+            {
+                combobox.Items.Add(items.Keys);
+            }
+        }
         public static int AutoClac(this FlowLayoutPanel flowLayoutPanel)
         {
             int result = 0;
-            int price = 0;
-            var panel = flowLayoutPanel.Controls;
-            for (int i = 0; i < panel.Count; i++)
+            //var panel = flowLayoutPanel.Controls;
+            for (int i = 0; i < flowLayoutPanel.Controls.Count; i++)
             {
-                FlowLayoutPanel flowLayoutPanel1 = (FlowLayoutPanel)panel[i];
-                CheckBox checkBox = (CheckBox)flowLayoutPanel1.Controls[0];
-                NumericUpDown numericUpDown = (NumericUpDown)flowLayoutPanel1.Controls[1];
-                if (checkBox.Checked)
+                if (i < 4)
                 {
-                    price = int.Parse(checkBox.Text.Split('$')[1]);
-                    result += int.Parse(numericUpDown.Value.ToString()) * price;
+                    continue;
                 }
+                //FlowLayoutPanel flowLayoutPanel1 = (FlowLayoutPanel)panel[i];
+                FlowLayoutPanel flowLayoutPanel1 = (FlowLayoutPanel)flowLayoutPanel.Controls[i];
+                Label label = (Label)flowLayoutPanel1.Controls[3];
+                //FlowLayoutPanel item = (FlowLayoutPanel)flowLayoutPanel.Controls[i];
+
+                result += int.Parse(label.Text.Split('元')[0]);
             }
             return result;
         }
-        //public static int DynamicGeneration(this FlowLayoutPanel flowLayoutPanel)
-        //{
-
-        //}
 
     }
 }
