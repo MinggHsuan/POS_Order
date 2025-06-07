@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DiscountContext.cs" />
     <Compile Include="Discount.cs" />
     <Compile Include="DiscountFactory.cs" />
     <Compile Include="DiscountModel.cs" />
