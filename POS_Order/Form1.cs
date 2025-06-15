@@ -27,9 +27,7 @@ namespace POS_Order
             string[] sideFoods = { "薯條$40", "雞塊$50", "薯球$20" };
             string[] dessert = { "草莓蛋糕$100", "巧克力冰$95", "聖代$200" };
             string[] drinks = { "紅茶$20", "綠茶$30", "奶茶$40" };
-            //string[] comboitems = { "雞腿飯買二送一", "雞排飯買三個打85折", "排骨飯搭配薯條100元",
-            //    "雞排飯搭配聖代送紅茶一杯","雞排飯搭配薯條打95折","飲料均一價20元","所有飲料買三杯就送一杯(送最便宜品項)",
-            //    "排骨飯搭配任一種配餐就送奶茶","全場消費滿500折100","全場一律打9折" };
+
             Dictionary<string, string> dict = new Dictionary<string, string>
             {
                 { "雞腿飯買二送一", "POS_Order.Discounts.Chicken_BuyTwoOneFree" },
