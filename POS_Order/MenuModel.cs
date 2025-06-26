@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace POS_Order
 {
-    internal class MenuModel
+    public class MenuModel
     {
         public Menu[] Menus { get; set; }
         public Discount[] Discounts { get; set; }

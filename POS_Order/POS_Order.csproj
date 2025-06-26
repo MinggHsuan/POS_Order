@@ -78,6 +78,11 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShowPanel.cs" />
+    <Compile Include="Strategies\ADiscountStrategy.cs" />
+    <Compile Include="Strategies\ComboFixedPriceStrategy.cs" />
+    <Compile Include="Strategies\ComboGiftStrategy.cs" />
+    <Compile Include="Strategies\ItemPercentageDiscountStrategy.cs" />
+    <Compile Include="Strategies\OrderAmountDiscountStrategy.cs" />
     <Compile Include="TotalPrice.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

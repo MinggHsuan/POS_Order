@@ -10,7 +10,7 @@ namespace POS_Order
     public class Order
     {
         static List<Item> items = new List<Item>();
-        public static void AddOrder(string discountType, Item item)
+        public static void AddOrder(MenuModel.Discount discountType, Item item)
         {
             for (int i = 0; i < items.Count; i++)
             {
@@ -33,7 +33,7 @@ namespace POS_Order
             Discount.DisCountOrder(discountType, items);
         }
 
-        public static void Checkout(string discountType)
+        public static void Checkout(MenuModel.Discount discountType)
         {
             Discount.DisCountOrder(discountType, items);
 

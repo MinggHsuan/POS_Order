@@ -16,10 +16,10 @@ namespace POS_Order
         }
         public abstract void GetResult(List<Item> items);
 
-        public static void DisCountOrder(string discountType, List<Item> items)
+        public static void DisCountOrder(MenuModel.Discount discountType, List<Item> items)
         {
             items.RemoveAll(x => x.name.Contains("贈送") || x.name.Contains("折扣"));
-            if (discountType == "")
+            if (discountType == null)
             {
                 ShowPanel.BuildUp(items);
             }

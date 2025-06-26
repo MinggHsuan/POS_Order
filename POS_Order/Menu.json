@@ -93,7 +93,7 @@
   "Discounts":[
     {
         "Name":"雞排飯買三個打85折",
-        "Strategy":"特定品項的打折",
+        "Strategy":"POS_Order.Strategies.ItemPercentageDiscountStrategy",
         "Conditions":[
             {
                 "Name":"雞排飯",
@@ -115,7 +115,7 @@
     },
     {
         "Name":"所有飲料任選三杯打8折",
-        "Strategy":"特定品項的打折",
+        "Strategy":"POS_Order.Strategies.ItemPercentageDiscountStrategy",
         "Conditions":[
             {
                 "Name":"紅茶|綠茶|奶茶|芒果冰沙|珍珠奶茶|烏龍奶茶",
@@ -138,7 +138,7 @@
     },
     {
         "Name":"雞排飯搭配聖代送紅茶一杯",
-        "Strategy":"特定組合送特定品項",
+        "Strategy":"POS_Order.Strategies.ComboGiftStrategy",
         "Conditions":[
             {
                 "Name":"雞排飯",
@@ -164,9 +164,42 @@
         ]
 
     },
+     {
+        "Name":"主餐任選兩份外加雞塊兩份就送紅茶兩杯和草莓蛋糕一份",
+        "Strategy":"POS_Order.Strategies.ComboGiftStrategy",
+        "Conditions":[
+            {
+                "Name":"雞腿飯|排骨飯|雞排飯",
+                "RequirAmount":2,
+                "RequirPrice":0
+            },
+            {
+                "Name":"雞塊",
+                "RequirAmount":2,
+                "RequirPrice":0
+            }
+            
+        ],
+        "Rewards":[
+            {
+                "Name":"紅茶",
+                "RewardType":0,
+                "RewardsAmount":2,
+                "RewardsPrice":0,
+                "RewardsOff":0
+            },
+            {
+                "Name":"草莓蛋糕",
+                "RewardType":0,
+                "RewardsAmount":1,
+                "RewardsPrice":0,
+                "RewardsOff":0
+            }
+        ]
+    },
     {
         "Name":"雞腿飯買兩份外加雞塊兩份就送紅茶兩杯和草莓蛋糕一份",
-        "Strategy":"特定組合送特定品項",
+        "Strategy":"POS_Order.Strategies.ComboGiftStrategy",
         "Conditions":[
             {
                 "Name":"雞腿飯",
@@ -199,7 +232,7 @@
     },
     {
         "Name":"排骨飯兩份搭配任選一種配餐就送奶茶",
-        "Strategy":"特定組合送特定品項",
+        "Strategy":"POS_Order.Strategies.ComboGiftStrategy",
         "Conditions":[
             {
                 "Name":"排骨飯",
@@ -225,7 +258,7 @@
     },
     {
         "Name":"所有飲料買三杯就送一杯(送最便宜品項)",
-        "Strategy":"特定組合送特定品項",
+        "Strategy":"POS_Order.Strategies.ComboGiftStrategy",
         "Conditions":[
             {
                 "Name":"紅茶|綠茶|奶茶|芒果冰沙|珍珠奶茶|烏龍奶茶",
@@ -245,7 +278,7 @@
     },
     {
         "Name":"指定奶茶系列任選兩杯送一杯送最貴價格",
-        "Strategy":"特定組合送特定品項",
+        "Strategy":"POS_Order.Strategies.ComboGiftStrategy",
         "Conditions":[
             {
                 "Name":"奶茶|珍珠奶茶|烏龍奶茶",
@@ -265,7 +298,7 @@
     },
     {
         "Name":"所有飲料任選三杯送一杯有購買的隨機飲料",
-        "Strategy":"特定組合送特定品項",
+        "Strategy":"POS_Order.Strategies.ComboGiftStrategy",
         "Conditions":[
             {
                 "Name":"紅茶|綠茶|奶茶|芒果冰沙|珍珠奶茶|烏龍奶茶",
@@ -285,7 +318,7 @@
     },
     {
         "Name":"雞腿飯買二送一",
-        "Strategy":"特定組合送特定品項",
+        "Strategy":"POS_Order.Strategies.ComboGiftStrategy",
         "Conditions":[
             {
                 "Name":"雞腿飯",
@@ -305,7 +338,7 @@
     },
     {
         "Name":"全場消費滿500折100",
-        "Strategy":"消費總額的打折",
+        "Strategy":"POS_Order.Strategies.OrderAmountDiscountStrategy",
         "Conditions":[
             {
                 "Name":null,
@@ -327,7 +360,7 @@
     },
     {
         "Name":"全場一律打9折",
-        "Strategy":"消費總額的打折",
+        "Strategy":"POS_Order.Strategies.OrderAmountDiscountStrategy",
         "Conditions":[],
         "Rewards":[
             {
@@ -342,7 +375,7 @@
     },
     {
         "Name":"排骨飯搭配薯條100元",
-        "Strategy":"特定組合的優惠價",
+        "Strategy":"POS_Order.Strategies.ComboFixedPriceStrategy",
         "Conditions":[
             {  
                 "Name":"排骨飯",
@@ -368,7 +401,7 @@
     },
     {
         "Name":"雞排飯買兩份外加薯條兩份180元",
-        "Strategy":"特定組合的優惠價",
+        "Strategy":"POS_Order.Strategies.ComboFixedPriceStrategy",
         "Conditions":[
             {  
                 "Name":"雞排飯",
@@ -393,7 +426,7 @@
     },
     {
         "Name":"雞排飯3份搭配薯條1份打65折",
-        "Strategy":"特定組合的優惠價",
+        "Strategy":"POS_Order.Strategies.ComboFixedPriceStrategy",
         "Conditions":[
             {  
                 "Name":"雞排飯",
@@ -418,7 +451,7 @@
     },
     {
         "Name":"飲料均一價20元",
-        "Strategy":"特定組合的優惠價",
+        "Strategy":"POS_Order.Strategies.ComboFixedPriceStrategy",
         "Conditions":[
             {  
                 "Name":"紅茶|綠茶|奶茶|芒果冰沙|珍珠奶茶|烏龍奶茶",
