@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using POS_Order.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,15 +26,13 @@ namespace POS_Order
         private void Form1_Load(object sender, EventArgs e)
         {
 
-            string menupath = ConfigurationManager.AppSettings["MenuPath"];
-            string menujson = File.ReadAllText(menupath, Encoding.UTF8);
-            MenuModel menuModel = JsonConvert.DeserializeObject<MenuModel>(menujson);
-            menuContainer.AutoGenerate(menuModel, Checkbox_CheckedChange, Numberic_ValueChange);
+
+            menuContainer.AutoGenerate(Checkbox_CheckedChange, Numberic_ValueChange);
 
             PanelHandlers.Handler += GetPanel;
 
 
-            comboBox1.DataSource = menuModel.Discounts;
+            comboBox1.DataSource = MenuData.Discounts;
             comboBox1.DisplayMember = "Name";
             //comboBox1.SelectedIndex = 1;
         }

@@ -61,15 +61,15 @@
         "Foods":[
             {
                 "Name":"紅茶",
-                "Price":20
+                "Price":35
             },
             {
                 "Name":"綠茶",
-                "Price":30
+                "Price":40
             },
             {
                 "Name":"奶茶",
-                "Price":40
+                "Price":45
             },
             {
                 "Name":"珍珠奶茶",
@@ -104,7 +104,8 @@
         "Rewards":[
             {
                 "Name":null,
-                "RewardType":0,
+                "RewardType":"",
+                "RewardsSetPrice":0,
                 "RewardsAmount":0,
                 "RewardsPrice":0,
                 "RewardsOff":0.85
@@ -127,7 +128,8 @@
         "Rewards":[
             {
                 "Name":null,
-                "RewardType":0,
+                "RewardType":"",
+                "RewardsSetPrice":0,
                 "RewardsAmount":0,
                 "RewardsPrice":0,
                 "RewardsOff":0.8
@@ -156,7 +158,8 @@
         "Rewards":[
             {
                 "Name":"紅茶",
-                "RewardType":0,
+                "RewardType":"",
+                "RewardsSetPrice":0,
                 "RewardsAmount":1,
                 "RewardsPrice":0,
                 "RewardsOff":0
@@ -183,14 +186,16 @@
         "Rewards":[
             {
                 "Name":"紅茶",
-                "RewardType":0,
+                "RewardType":"",
+                "RewardsSetPrice":0,
                 "RewardsAmount":2,
                 "RewardsPrice":0,
                 "RewardsOff":0
             },
             {
                 "Name":"草莓蛋糕",
-                "RewardType":0,
+                "RewardType":"",
+                "RewardsSetPrice":0,
                 "RewardsAmount":1,
                 "RewardsPrice":0,
                 "RewardsOff":0
@@ -216,14 +221,16 @@
         "Rewards":[
             {
                 "Name":"紅茶",
-                "RewardType":0,
+                "RewardType":"",
+                "RewardsSetPrice":0,
                 "RewardsAmount":2,
                 "RewardsPrice":0,
                 "RewardsOff":0
             },
             {
                 "Name":"草莓蛋糕",
-                "RewardType":0,
+                "RewardType":"",
+                "RewardsSetPrice":0,
                 "RewardsAmount":1,
                 "RewardsPrice":0,
                 "RewardsOff":0
@@ -249,7 +256,8 @@
         "Rewards":[
             {
                 "Name":"奶茶",
-                "RewardType":0,
+                "RewardType":"",
+                "RewardsSetPrice":0,
                 "RewardsAmount":1,
                 "RewardsPrice":0,
                 "RewardsOff":0
@@ -270,6 +278,7 @@
             {
                 "Name":"紅茶|綠茶|奶茶|芒果冰沙|珍珠奶茶|烏龍奶茶",
                 "RewardType":"Min",
+                "RewardsSetPrice":0,
                 "RewardsAmount":1,
                 "RewardsPrice":0,
                 "RewardsOff":0
@@ -290,6 +299,7 @@
             {
                 "Name":"奶茶|珍珠奶茶|烏龍奶茶",
                 "RewardType":"Max",
+                "RewardsSetPrice":0,
                 "RewardsAmount":1,
                 "RewardsPrice":0,
                 "RewardsOff":0
@@ -310,6 +320,7 @@
             {
                 "Name":"紅茶|綠茶|奶茶|芒果冰沙|珍珠奶茶|烏龍奶茶",
                 "RewardType":"Random",
+                "RewardsSetPrice":0,
                 "RewardsAmount":1,
                 "RewardsPrice":0,
                 "RewardsOff":0
@@ -329,7 +340,8 @@
         "Rewards":[
             {
                 "Name":"雞腿飯",
-                "RewardType":0,
+                "RewardType":"",
+                "RewardsSetPrice":0,
                 "RewardsAmount":1,
                 "RewardsPrice":0,
                 "RewardsOff":0
@@ -350,7 +362,8 @@
         "Rewards":[
             {
                 "Name":null,
-                "RewardType":0,
+                "RewardType":"",
+                "RewardsSetPrice":0,
                 "RewardsAmount":0,
                 "RewardsPrice":-100,
                 "RewardsOff":0
@@ -361,14 +374,43 @@
     {
         "Name":"全場一律打9折",
         "Strategy":"POS_Order.Strategies.OrderAmountDiscountStrategy",
-        "Conditions":[],
+        "Conditions":[
+            {
+                "Name":null,
+                "RequirAmount":0,
+                "RequirPrice":0
+
+            }],
         "Rewards":[
             {
                 "Name":null,
-                "RewardType":0,
+                "RewardType":"",
+                "RewardsSetPrice":0,
                 "RewardsAmount":0,
                 "RewardsPrice":0,
                 "RewardsOff":0.9
+            }
+
+        ]
+    },
+    {
+        "Name":"全場消費滿1000打8折",
+        "Strategy":"POS_Order.Strategies.OrderAmountDiscountStrategy",
+        "Conditions":[
+            {
+                "Name":null,
+                "RequirAmount":0,
+                "RequirPrice":1000
+
+            }],
+        "Rewards":[
+            {
+                "Name":null,
+                "RewardType":"",
+                "RewardsSetPrice":0,
+                "RewardsAmount":0,
+                "RewardsPrice":0,
+                "RewardsOff":0.8
             }
 
         ]
@@ -391,9 +433,10 @@
         "Rewards":[
             {
                 "Name":null,
-                "RewardType":0,
+                "RewardType":"",
+                "RewardsSetPrice":100,
                 "RewardsAmount":0,
-                "RewardsPrice":100,
+                "RewardsPrice":0,
                 "RewardsOff":0
             }
 
@@ -417,9 +460,10 @@
         "Rewards":[
             {
                 "Name":null,
-                "RewardType":0,
+                "RewardType":"",
+                "RewardsSetPrice":180,
                 "RewardsAmount":0,
-                "RewardsPrice":180,
+                "RewardsPrice":0,
                 "RewardsOff":0
             }
         ]
@@ -442,7 +486,8 @@
         "Rewards":[
             {
                 "Name":null,
-                "RewardType":0,
+                "RewardType":"",
+                "RewardsSetPrice":0,
                 "RewardsAmount":0,
                 "RewardsPrice":0,
                 "RewardsOff":0.65
@@ -462,9 +507,36 @@
         "Rewards":[
             {
                 "Name":null,
-                "RewardType":0,
+                "RewardType":"",
+                "RewardsSetPrice":0,
                 "RewardsAmount":0,
                 "RewardsPrice":20,
+                "RewardsOff":0
+            }
+        ]
+    },
+    {
+        "Name":"任選飲料+任選主餐 固定價格100元",
+        "Strategy":"POS_Order.Strategies.ComboFixedPriceStrategy",
+        "Conditions":[
+            {  
+                "Name":"紅茶|綠茶|奶茶|芒果冰沙|珍珠奶茶|烏龍奶茶",
+                "RequirAmount":1,
+                "RequirPrice":0
+            },
+            {
+                "Name":"雞腿飯|排骨飯|雞排飯",
+                "RequirAmount":1,
+                "RequirPrice":0
+            }
+        ],
+        "Rewards":[
+            {
+                "Name":null,
+                "RewardType":"",
+                "RewardsSetPrice":100,
+                "RewardsAmount":0,
+                "RewardsPrice":0,
                 "RewardsOff":0
             }
         ]

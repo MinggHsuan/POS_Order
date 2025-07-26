@@ -41,7 +41,8 @@ namespace POS_Order
         public class Reward
         {
             public string Name { get; set; }
-            public object RewardType { get; set; }
+            public string RewardType { get; set; }
+            public int RewardsSetPrice { get; set; }
             public int RewardsAmount { get; set; }
             public int RewardsPrice { get; set; }
             public float RewardsOff { get; set; }

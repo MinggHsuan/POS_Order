@@ -1,4 +1,5 @@
-﻿using System;
+﻿using POS_Order.Models;
+using System;
 using System.Collections.Generic;
 using System.Drawing.Printing;
 using System.Linq;
@@ -25,18 +26,18 @@ namespace POS_Order
             return count;
         }
 
-        public static void AutoGenerate(this FlowLayoutPanel flowLayoutPanel, MenuModel menuModel, EventHandler checkedChanged, EventHandler valueChanged)
+        public static void AutoGenerate(this FlowLayoutPanel flowLayoutPanel, EventHandler checkedChanged, EventHandler valueChanged)
         {
-            for (int i = 0; i < menuModel.Menus.Length; i++)
+            for (int i = 0; i < MenuData.Menus.Length; i++)
             {
                 FlowLayoutPanel panelbox = new FlowLayoutPanel();
                 panelbox.Width = 180;
-                panelbox.Height = 200;
+                panelbox.Height = 240;
                 Label label = new Label();
                 label.Width = 40;
-                label.Text = menuModel.Menus[i].Title;
+                label.Text = MenuData.Menus[i].Title;
                 panelbox.Controls.Add(label);
-                for (int j = 0; j < menuModel.Menus[i].Foods.Length; j++)
+                for (int j = 0; j < MenuData.Menus[i].Foods.Length; j++)
                 {
                     FlowLayoutPanel panel = new FlowLayoutPanel();
                     panel.Width = 180;
@@ -45,7 +46,7 @@ namespace POS_Order
                     checkBox.CheckedChanged += checkedChanged;
                     NumericUpDown numericUpDown = new NumericUpDown();
                     numericUpDown.ValueChanged += valueChanged;
-                    checkBox.Text = menuModel.Menus[i].Foods[j].Name + "$" + menuModel.Menus[i].Foods[j].Price;
+                    checkBox.Text = MenuData.Menus[i].Foods[j].Name + "$" + MenuData.Menus[i].Foods[j].Price;
                     checkBox.Width = 100;
                     numericUpDown.Width = 60;
                     panel.Controls.Add(checkBox);
