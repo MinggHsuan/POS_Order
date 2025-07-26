@@ -1,0 +1,145 @@
+{
+  "Menus": [
+  {
+    "Title": "主餐",
+    "Foods": [
+      { "Name": "照燒雞腿丼", "Price": 150 },
+      { "Name": "豬排咖哩飯", "Price": 160 },
+      { "Name": "親子丼", "Price": 140 },
+      { "Name": "鰻魚飯", "Price": 240 }
+    ]
+  },
+  {
+    "Title": "附餐",
+    "Foods": [
+      { "Name": "玉子燒", "Price": 50 },
+      { "Name": "唐揚炸雞", "Price": 60 },
+      { "Name": "可樂餅", "Price": 45 }
+    ]
+  },
+  {
+    "Title": "甜點",
+    "Foods": [
+      { "Name": "抹茶冰淇淋", "Price": 80 },
+      { "Name": "黑糖蕨餅", "Price": 70 },
+      { "Name": "日式麻糬三色組", "Price": 90 }
+    ]
+  },
+  {
+    "Title": "飲料",
+    "Foods": [
+      { "Name": "玄米茶", "Price": 40 },
+      { "Name": "抹茶拿鐵", "Price": 65 },
+      { "Name": "梅子蘇打", "Price": 55 },
+      { "Name": "日式可爾必思", "Price": 60 }
+    ]
+  }]
+
+
+  ,
+  "Discounts": [
+  {
+    "Name": "任選兩份丼飯折10%",
+    "Strategy": "POS_Order.Strategies.ItemPercentageDiscountStrategy",
+    "Conditions": [
+      {
+        "Name": "照燒雞腿丼|豬排咖哩飯|親子丼|鰻魚飯",
+        "RequirAmount": 2,
+        "RequirPrice": 0
+      }
+    ],
+    "Rewards": [
+      {
+        "Name": null,
+        "RewardType": "",
+        "RewardsSetPrice": 0,
+        "RewardsAmount": 0,
+        "RewardsPrice": 0,
+        "RewardsOff": 0.9
+      }
+    ]
+  },
+  {
+    "Name": "炸雞+抹茶冰淇淋只要100元",
+    "Strategy": "POS_Order.Strategies.ComboFixedPriceStrategy",
+    "Conditions": [
+      { "Name": "唐揚炸雞", "RequirAmount": 1, "RequirPrice": 0 },
+      { "Name": "抹茶冰淇淋", "RequirAmount": 1, "RequirPrice": 0 }
+    ],
+    "Rewards": [
+      {
+        "Name": null,
+        "RewardType": "",
+        "RewardsSetPrice": 100,
+        "RewardsAmount": 0,
+        "RewardsPrice": 0,
+        "RewardsOff": 0
+      }
+    ]
+  },
+  {
+    "Name": "日式可爾必思買一送一",
+    "Strategy": "POS_Order.Strategies.ComboGiftStrategy",
+    "Conditions": [
+      { "Name": "日式可爾必思", "RequirAmount": 1, "RequirPrice": 0 }
+    ],
+    "Rewards": [
+      {
+        "Name": "日式可爾必思",
+        "RewardType": "",
+        "RewardsSetPrice": 0,
+        "RewardsAmount": 1,
+        "RewardsPrice": 0,
+        "RewardsOff": 0
+      }
+    ]
+  },
+   {
+    "Name": "可樂餅買三送一及任選飲料買兩杯送一杯(隨機)",
+    "Strategy": "POS_Order.Strategies.ComboGiftStrategy",
+    "Conditions": [
+      { "Name": "可樂餅", "RequirAmount": 3, "RequirPrice": 0 },
+     { "Name": "玄米茶|抹茶拿鐵|梅子蘇打|日式可爾必思", "RequirAmount": 2, "RequirPrice": 0 }
+    ],
+    "Rewards": [
+      {
+        "Name": "可樂餅",
+        "RewardType": "",
+        "RewardsSetPrice": 0,
+        "RewardsAmount": 1,
+        "RewardsPrice": 0,
+        "RewardsOff": 0
+      },
+      {
+        "Name": "玄米茶|抹茶拿鐵|梅子蘇打|日式可爾必思",
+        "RewardType": "Random",
+        "RewardsSetPrice": 0,
+        "RewardsAmount": 1,
+        "RewardsPrice": 0,
+        "RewardsOff": 0
+      }
+    ]
+  },
+  {
+    "Name": "飲料任選三杯送一杯（隨機）",
+    "Strategy": "POS_Order.Strategies.ComboGiftStrategy",
+    "Conditions": [
+      {
+        "Name": "玄米茶|抹茶拿鐵|梅子蘇打|日式可爾必思",
+        "RequirAmount": 3,
+        "RequirPrice": 0
+      }
+    ],
+    "Rewards": [
+      {
+        "Name": "玄米茶|抹茶拿鐵|梅子蘇打|日式可爾必思",
+        "RewardType": "Random",
+        "RewardsSetPrice": 0,
+        "RewardsAmount": 1,
+        "RewardsPrice": 0,
+        "RewardsOff": 0
+      }
+    ]
+  }
+]
+}

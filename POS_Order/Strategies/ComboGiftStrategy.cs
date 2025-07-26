@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using static POS_Order.MenuModel;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Menu;
 
@@ -147,13 +148,14 @@ namespace POS_Order.Strategies
             List<Conditionbox> RewardsCondition = new List<Conditionbox>();
             Dictionary<int, List<Conditionbox>> RewardsClassify = new Dictionary<int, List<Conditionbox>>();
 
-            if (discountType.Rewards.Any(x => x.RewardType == ""))
-            {
-                var rewardItem = discountType.Rewards
-                    .Where(x => x.RewardType == "")
-                    .Select(x => (new Item($"(贈送){x.Name}", 0, minCombo * x.RewardsAmount))).ToList();
-                items.AddRange(rewardItem);
-            }
+            //if (discountType.Rewards.Any(x => x.RewardType == ""))
+            //{
+            //    items.AddRange(discountType.Rewards
+            //        .Where(x => x.RewardType == "")
+            //        .Select(x => (new Item($"(贈送){x.Name}", 0, minCombo * x.RewardsAmount))));
+
+            //    return;
+            //}
 
             //for (int i = 0; i < discountType.Rewards.Length; i++)
             //{
@@ -219,6 +221,10 @@ namespace POS_Order.Strategies
             items.AddRange(discountType.Rewards.Select(x =>
             {
                 Conditionbox gifts = null;
+                if (x.RewardType == "")
+                {
+                    return new Item($"(贈送){x.Name}", 0, minCombo * x.RewardsAmount);
+                }
                 if (x.RewardType == "Min")
                 {
                     int minprice = rewards.Min(y => y.price);
@@ -233,7 +239,10 @@ namespace POS_Order.Strategies
                 }
                 if (x.RewardType == "Random")
                 {
-                    gifts = rewards.OrderBy(y => new Random(Guid.NewGuid().GetHashCode()).Next()).First();
+                    var rewardnames = x.Name.Split('|');
+
+                    var reward = rewards.Where(y => rewardnames.Contains(y.name)).ToList();
+                    gifts = reward.OrderBy(y => new Random(Guid.NewGuid().GetHashCode()).Next()).First();
                 }
                 return new Item($"(贈送){gifts.name}", 0, minCombo * x.RewardsAmount);
             }));
