@@ -34,6 +34,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.menuContainer = new System.Windows.Forms.FlowLayoutPanel();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.RecommandReasonTxt = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // button1
@@ -88,11 +90,32 @@
             this.menuContainer.Size = new System.Drawing.Size(529, 591);
             this.menuContainer.TabIndex = 14;
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(557, 538);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(104, 19);
+            this.checkBox1.TabIndex = 15;
+            this.checkBox1.Text = "AI推薦折扣";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // RecommandReasonTxt
+            // 
+            this.RecommandReasonTxt.Location = new System.Drawing.Point(1017, 6);
+            this.RecommandReasonTxt.Multiline = true;
+            this.RecommandReasonTxt.Name = "RecommandReasonTxt";
+            this.RecommandReasonTxt.Size = new System.Drawing.Size(237, 523);
+            this.RecommandReasonTxt.TabIndex = 16;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1013, 613);
+            this.ClientSize = new System.Drawing.Size(1262, 613);
+            this.Controls.Add(this.RecommandReasonTxt);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.menuContainer);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label9);
@@ -114,6 +137,8 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.FlowLayoutPanel menuContainer;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.TextBox RecommandReasonTxt;
     }
 }
 

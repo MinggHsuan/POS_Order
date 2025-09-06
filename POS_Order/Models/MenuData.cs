@@ -15,11 +15,12 @@ namespace POS_Order.Models
         public static Menu[] Menus { get; set; }
         public static MenuModel.Discount[] Discounts { get; set; }
 
+        public static string Menujson { get; set; } = "";
         static MenuData()
         {
             string menupath = ConfigurationManager.AppSettings["MenuPath"];
-            string menujson = File.ReadAllText(menupath, Encoding.UTF8);
-            MenuModel menuModel = JsonConvert.DeserializeObject<MenuModel>(menujson);
+            Menujson = File.ReadAllText(menupath, Encoding.UTF8);
+            MenuModel menuModel = JsonConvert.DeserializeObject<MenuModel>(Menujson);
 
             Menus = menuModel.Menus;
             Discounts = menuModel.Discounts;

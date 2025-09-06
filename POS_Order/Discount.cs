@@ -1,4 +1,5 @@
-﻿using System;
+﻿using POS_Order.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,18 +17,20 @@ namespace POS_Order
         }
         public abstract void GetResult(List<Item> items);
 
-        public static void DisCountOrder(MenuModel.Discount discountType, List<Item> items)
+        public static async Task DisCountOrder(OrderRequest orderRequest)
         {
-            items.RemoveAll(x => x.name.Contains("贈送") || x.name.Contains("折扣"));
-            if (discountType == null)
-            {
-                ShowPanel.BuildUp(items);
-            }
+            orderRequest.items.RemoveAll(x => x.name.Contains("贈送") || x.name.Contains("折扣"));
+            //if (orderRequest.Discount == null)
+            //{
+            //    ShowPanel.BuildUp(orderRequest.items);
+            //    return;
+            //}
             //DiscountFactory discountFactory = new DiscountFactory();
             //Discount discount = discountFactory.GetDiscount(discountType, items);
-            DiscountContext discountContext = new DiscountContext(discountType, items);
-            discountContext.ReturnResult();
-            ShowPanel.BuildUp(items);
+            DiscountContext discountContext = new DiscountContext(orderRequest);
+            (string discountName, string reason) = await discountContext.ApplyStrategy();
+
+            ShowPanel.BuildUp(orderRequest.items, discountName, reason);
 
         }
     }

@@ -7,16 +7,19 @@ using System.Windows.Forms;
 
 namespace POS_Order
 {
-    public class TotalPrice
+    public class RenderData
     {
         public FlowLayoutPanel panel;
         public int total;
+        public string reason;
+        public string discountName;
 
-        public TotalPrice(FlowLayoutPanel panel, int total)
+        public RenderData(FlowLayoutPanel panel, int total, string discountName, string reason)
         {
             this.panel = panel;
             this.total = total;
-            PanelHandlers.Notify(this);
+            this.reason = reason;
+            this.discountName = discountName;
         }
     }
 }

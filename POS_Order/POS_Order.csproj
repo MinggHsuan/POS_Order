@@ -50,6 +50,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AIModule\AgentType.cs" />
+    <Compile Include="AIModule\AIAgent.cs" />
+    <Compile Include="AIModule\AIResponse.cs" />
+    <Compile Include="AIModule\AIResult.cs" />
+    <Compile Include="AIModule\AIRequest.cs" />
+    <Compile Include="AIModule\Classification.cs" />
+    <Compile Include="AIModule\DiscountTool\DiscountDeclaration.cs" />
+    <Compile Include="AIModule\DiscountTool\DiscountParameter.cs" />
+    <Compile Include="AIModule\DiscountTool\UseDiscountTool.cs" />
+    <Compile Include="AIModule\Parameters.cs" />
+    <Compile Include="AIModule\ToolDeclaration.cs" />
+    <Compile Include="AIModule\ToolsFunction.cs" />
     <Compile Include="DiscountContext.cs" />
     <Compile Include="Discount.cs" />
     <Compile Include="DiscountFactory.cs" />
@@ -66,6 +78,7 @@
     <Compile Include="Discounts\RibsWithSide_MilkTea.cs" />
     <Compile Include="Models\MenuModel.cs" />
     <Compile Include="Models\MenuData.cs" />
+    <Compile Include="Models\OrderRequest.cs" />
     <Compile Include="PanelHandlers.cs" />
     <Compile Include="Extension.cs" />
     <Compile Include="Form1.cs">
@@ -84,7 +97,7 @@
     <Compile Include="Strategies\ComboGiftStrategy.cs" />
     <Compile Include="Strategies\ItemPercentageDiscountStrategy.cs" />
     <Compile Include="Strategies\OrderAmountDiscountStrategy.cs" />
-    <Compile Include="TotalPrice.cs" />
+    <Compile Include="Models\RenderData.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

@@ -9,7 +9,7 @@ namespace POS_Order
 {
     public class ShowPanel
     {
-        public static void BuildUp(List<Item> items)
+        public static void BuildUp(List<Item> items, string discountName, string reason)
         {
             int total = 0;
             FlowLayoutPanel flowLayoutPanel = new FlowLayoutPanel();
@@ -67,7 +67,9 @@ namespace POS_Order
                 panelbox.Controls.Add(subtotal);
             }
 
-            TotalPrice totalPrice = new TotalPrice(flowLayoutPanel, total);
+            RenderData renderData = new RenderData(flowLayoutPanel, total, discountName, reason);
+            PanelHandlers.Notify(renderData);
+
         }
 
     }

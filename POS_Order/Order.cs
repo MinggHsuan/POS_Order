@@ -1,4 +1,5 @@
-﻿using System;
+﻿using POS_Order.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,35 +11,38 @@ namespace POS_Order
     public class Order
     {
         static List<Item> items = new List<Item>();
-        public static void AddOrder(MenuModel.Discount discountType, Item item)
+        public static async Task AddOrder(OrderRequest order)
         {
             for (int i = 0; i < items.Count; i++)
             {
-                if (item.amount == 0 && items[i].name == item.name)
+                if (order.item.amount == 0 && items[i].name == order.item.name)
                 {
                     items.Remove(items[i]);
-                    Discount.DisCountOrder(discountType, items);
+                    order.items = items;
+                    await Discount.DisCountOrder(order);
                     return;
                 }
 
-                if (items[i].name == item.name)
+                if (items[i].name == order.item.name)
                 {
-                    items[i].amount = item.amount;
-                    items[i].subtotal = item.subtotal;
-                    Discount.DisCountOrder(discountType, items);
+                    items[i].amount = order.item.amount;
+                    items[i].subtotal = order.item.subtotal;
+                    order.items = items;
+                    await Discount.DisCountOrder(order);
                     return;
                 }
             }
-            items.Add(item);
-            Discount.DisCountOrder(discountType, items);
+            items.Add(order.item);
+            order.items = items;
+            await Discount.DisCountOrder(order);
         }
 
-        public static void Checkout(MenuModel.Discount discountType)
+        public static async Task Checkout(OrderRequest order)
         {
-            Discount.DisCountOrder(discountType, items);
+            order.items = items;
+            await Discount.DisCountOrder(order);
 
         }
-
 
 
     }

@@ -25,16 +25,12 @@ namespace POS_Order
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
-
             menuContainer.AutoGenerate(Checkbox_CheckedChange, Numberic_ValueChange);
 
             PanelHandlers.Handler += GetPanel;
 
-
             comboBox1.DataSource = MenuData.Discounts;
             comboBox1.DisplayMember = "Name";
-            //comboBox1.SelectedIndex = 1;
         }
 
         private void Checkbox_CheckedChange(object sender, EventArgs e)
@@ -46,18 +42,18 @@ namespace POS_Order
 
         }
 
-        private void Numberic_ValueChange(object sender, EventArgs e)
+        private async void Numberic_ValueChange(object sender, EventArgs e)
         {
 
             NumericUpDown numericUpDown = (NumericUpDown)sender;
             FlowLayoutPanel panel = (FlowLayoutPanel)numericUpDown.Parent;
             CheckBox checkbox = (CheckBox)panel.Controls[0];
             checkbox.Checked = numericUpDown.Value < 1 ? false : true;
-            var discount = (MenuModel.Discount)comboBox1.SelectedValue;
             Item itembox = new Item(checkbox.Text.Split('$')[0],
                 int.Parse(checkbox.Text.Split('$')[1]),
                 int.Parse(numericUpDown.Value.ToString()));
-            Order.AddOrder(discount, itembox);
+            OrderRequest orderRequest = new OrderRequest(itembox, (MenuModel.Discount)comboBox1.SelectedValue);
+            await Order.AddOrder(orderRequest);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -66,21 +62,42 @@ namespace POS_Order
             //totalLab.Text = result.ToString();
             //result = 0;
         }
-        private void GetPanel(object sender, TotalPrice box)
+        private void GetPanel(object sender, RenderData box)
         {
             flowLayoutPanel5.Controls.Clear();
             flowLayoutPanel5.Controls.Add(box.panel);
             totalLab.Text = box.total.ToString();
+            RecommandReasonTxt.Text = box.reason;
+            int discountIndex = 0;
+            for (int i = 0; i < MenuData.Discounts.Length; i++)
+            {
+                if (MenuData.Discounts[i].Name == box.discountName)
+                {
+                    discountIndex = i;
+                    break;
+                }
+            }
+            comboBox1.SelectedIndex = discountIndex;
             box.total = 0;
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private async void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBox1.SelectedValue is MenuModel.Discount discountType)
+            if (comboBox1.Enabled && comboBox1.SelectedValue is MenuModel.Discount discountType)
             {
-                Order.Checkout(discountType);
+                OrderRequest orderRequest = new OrderRequest(discountType);
+                await Order.Checkout(orderRequest);
             }
         }
+
+        private async void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            comboBox1.Enabled = !checkBox1.Checked;
+            OrderRequest orderRequest = new OrderRequest();
+            await Order.Checkout(orderRequest);
+        }
+
+
     }
 }
 

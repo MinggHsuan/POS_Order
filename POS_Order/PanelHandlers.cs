@@ -10,9 +10,9 @@ namespace POS_Order
 {
     public class PanelHandlers
     {
-        public static EventHandler<TotalPrice> Handler;
+        public static EventHandler<RenderData> Handler;
 
-        public static void Notify(TotalPrice box)
+        public static void Notify(RenderData box)
         {
             Handler?.Invoke(null, box);
         }
